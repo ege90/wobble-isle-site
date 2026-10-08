@@ -1,0 +1,250 @@
+/* Wobble Isle's web pages, in the game's Toy look (docs/screens.md): the start screen's sky with
+   paler dots, white cards with a thick ink edge and a thicker one underneath, loud words in
+   Lilita One with an ink rim and a drop, and Nunito for reading. The fonts are served from here,
+   so a visit asks nothing of any other site. */
+
+@font-face {
+    font-family: "Lilita One";
+    src: url("fonts/LilitaOne-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito-Variable.ttf") format("truetype");
+    font-weight: 200 1000;
+    font-display: swap;
+}
+
+:root {
+    color-scheme: light;
+    --ink: rgb(27, 34, 49);
+    --paper: rgb(255, 255, 255);
+    --action: rgb(124, 77, 255);
+    --sky: rgb(54, 180, 240);
+    --dot: rgb(92, 198, 247);
+    --soft: rgb(84, 92, 110);
+    --gutter: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--sky);
+    background-image:
+        radial-gradient(circle, var(--dot) 9px, transparent 10px),
+        radial-gradient(circle, var(--dot) 9px, transparent 10px);
+    background-size: 56px 56px;
+    background-position: 0 0, 28px 28px;
+}
+
+body {
+    margin: 0;
+    padding-block: 28px 56px;
+    padding-inline: var(--gutter);
+    color: var(--ink);
+    font-family: "Nunito", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.page {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* The header: the app icon and the game's name, its letters leaning as on the start screen. */
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    text-decoration: none;
+}
+
+.top img {
+    width: 64px;
+    height: 64px;
+    border-radius: 15px;
+    border: 3px solid var(--ink);
+    border-bottom-width: 6px;
+}
+
+.loud {
+    margin: 0;
+    font-family: "Lilita One", "Arial Rounded MT Bold", "Nunito", sans-serif;
+    font-weight: 400;
+    color: var(--paper);
+    letter-spacing: 0.5px;
+    /* The rim, all the way round, and the drop beneath. */
+    text-shadow:
+        3px 0 0 var(--ink), -3px 0 0 var(--ink), 0 3px 0 var(--ink), 0 -3px 0 var(--ink),
+        2px 2px 0 var(--ink), -2px 2px 0 var(--ink), 2px -2px 0 var(--ink), -2px -2px 0 var(--ink),
+        0 7px 0 var(--ink), 3px 6px 0 var(--ink), -3px 6px 0 var(--ink);
+}
+
+.name {
+    font-size: 40px;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.name span {
+    display: inline-block;
+}
+
+h1.loud {
+    font-size: 40px;
+    line-height: 1.15;
+    text-align: center;
+    text-wrap: balance;
+    margin-bottom: 18px;
+}
+
+/* A white card, like the game's buttons. */
+.card {
+    background: var(--paper);
+    border: 4px solid var(--ink);
+    border-bottom-width: 10px;
+    border-radius: 28px;
+    padding: 26px 26px 18px;
+}
+
+.card + .card {
+    margin-top: 18px;
+}
+
+.card h2 {
+    font-family: "Lilita One", "Arial Rounded MT Bold", "Nunito", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 26px 0 6px;
+    text-wrap: balance;
+}
+
+.card h2:first-child {
+    margin-top: 0;
+}
+
+.card p,
+.card ul {
+    margin: 0 0 14px;
+}
+
+.card ul {
+    padding-left: 22px;
+}
+
+.card li + li {
+    margin-top: 6px;
+}
+
+.lead {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.when {
+    color: var(--soft);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+a {
+    color: var(--action);
+    font-weight: 800;
+    text-underline-offset: 3px;
+}
+
+strong {
+    font-weight: 800;
+}
+
+/* The main way to reach the studio, as a violet pill like the game's main action. */
+.mail {
+    display: inline-block;
+    margin: 4px 0 14px;
+    padding: 10px 22px;
+    border: 4px solid var(--ink);
+    border-bottom-width: 8px;
+    border-radius: 999px;
+    background: var(--action);
+    color: var(--paper);
+    font-weight: 900;
+    font-size: 19px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+/* A question and its answer on the support page. */
+.question {
+    border-top: 3px dashed rgb(205, 212, 224);
+    padding-top: 16px;
+    margin-top: 16px;
+}
+
+.question h3 {
+    margin: 0 0 4px;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.question p {
+    margin: 0 0 6px;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.links a {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 4px solid var(--ink);
+    border-bottom-width: 8px;
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+footer {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 17px;
+        padding-block: 18px 40px;
+    }
+
+    .name,
+    h1.loud {
+        font-size: 32px;
+    }
+
+    .top img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .card {
+        padding: 20px 18px 12px;
+        border-radius: 22px;
+    }
+}
